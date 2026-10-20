@@ -1,0 +1,642 @@
+/* ==========================================================================
+   [화면 3: 글쓰기 화면] 스타일시트 (screen3_write.css)
+   감자 마켓 (Gamza Market) - 따뜻하고 포근한 어스톤(Earth Tone) 테마
+   ========================================================================== */
+
+:root {
+  --bg-main: #FDFBF7;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F4EFE6;
+  --primary: #8D5B4C;
+  --primary-hover: #734638;
+  --primary-light: #F5EBE6;
+  --accent-yellow: #FBC02D;
+  --accent-yellow-strong: #F5B82E;
+  --accent-yellow-light: #FFFDF2;
+  --accent-yellow-subtle: #FFF3C4;
+  --accent-yellow-border: #F5C445;
+  --accent-yellow-glow: rgba(245, 184, 46, 0.28);
+  --text-main: #2C221E;
+  --text-sub: #6E5D54;
+  --text-muted: #9E8E85;
+  --border-color: #E6DEC8;
+
+  /* 판매 상태 배지 컬러 (화면 1, 2와 통일) */
+  --status-sale-bg: #E6F4EA;
+  --status-sale-text: #1E7E34;
+  --status-sale-border: #B7DFC2;
+
+  --status-reserved-bg: #FFF3C4;
+  --status-reserved-text: #B45309;
+  --status-reserved-border: #F5C445;
+
+  --status-sold-bg: #E5E7EB;
+  --status-sold-text: #4B5563;
+  --status-sold-border: #D1D5DB;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-card: 0 4px 16px rgba(44, 34, 30, 0.06);
+  --transition-fast: 0.18s ease;
+}
+
+/* 글쓰기 섹션 컨테이너 */
+.write-view-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+  color: var(--text-main);
+  box-sizing: border-box;
+  animation: gamzaFadeIn 0.22s ease-out;
+}
+
+.write-view-section[hidden],
+.write-view-section.hidden {
+  display: none !important;
+}
+
+@keyframes gamzaFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 상단 헤더 영역 */
+.write-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 18px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.write-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#cancelWriteBtn,
+.btn-cancel-write {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+#cancelWriteBtn:hover,
+.btn-cancel-write:hover {
+  background-color: var(--accent-yellow-subtle);
+  border-color: var(--accent-yellow-strong);
+  box-shadow: 0 2px 8px rgba(245, 184, 46, 0.2);
+}
+
+#cancelWriteBtn:active,
+.btn-cancel-write:active {
+  transform: scale(0.98);
+}
+
+.write-header-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.write-header-badge {
+  --badge-bg: var(--accent-yellow-subtle);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-main);
+  background-color: var(--badge-bg);
+  border: 1px solid var(--accent-yellow-border);
+  padding: 5px 11px;
+  border-radius: 999px;
+  box-shadow: 0 1px 4px rgba(245, 184, 46, 0.2);
+}
+
+@supports (color: oklch(from red l c h)) {
+  .write-header-badge {
+    --threshold: 0.623;
+    --l: max(0, sign(var(--threshold) - l));
+    color: oklch(from var(--badge-bg) var(--l) 0 h);
+  }
+}
+
+@supports (color: contrast-color(red)) {
+  .write-header-badge {
+    color: contrast-color(var(--badge-bg));
+  }
+}
+
+/* 글쓰기 폼 카드 */
+#writeForm,
+.write-form-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 개별 폼 그룹 */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.form-label-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.required-dot {
+  color: #C94A38;
+  font-weight: 700;
+}
+
+.form-hint {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--text-sub);
+}
+
+/* 1. 상품 이미지 업로드 & 미리보기 영역 */
+.image-upload-wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.image-upload-box {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.image-upload-box:hover {
+  border-color: var(--accent-yellow-strong);
+  background-color: var(--accent-yellow-light);
+  box-shadow: 0 2px 10px rgba(245, 184, 46, 0.2);
+}
+
+.image-upload-box input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.image-upload-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--accent-yellow-strong);
+  filter: drop-shadow(0 1px 3px rgba(245, 184, 46, 0.35));
+}
+
+.image-upload-text {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-sub);
+  text-align: center;
+}
+
+.image-preview-card {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-subtle);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.image-preview-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-preview-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background-color: rgba(44, 34, 30, 0.8);
+  color: var(--accent-yellow);
+  border: 1px solid rgba(251, 192, 45, 0.45);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.btn-reset-image {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(44, 34, 30, 0.72);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast);
+}
+
+.btn-reset-image:hover {
+  background-color: #C94A38;
+}
+
+/* 샘플 일러스트 빠른 선택 바 */
+.sample-preset-panel {
+  flex: 1;
+  min-width: 210px;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sample-preset-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-sub);
+  margin: 0;
+}
+
+.sample-preset-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.btn-sample-preset {
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-sample-preset:hover,
+.btn-sample-preset.active {
+  border-color: var(--accent-yellow-strong);
+  background-color: var(--accent-yellow-subtle);
+  color: var(--text-main);
+  box-shadow: 0 2px 6px rgba(245, 184, 46, 0.22);
+}
+
+.sample-preset-notice {
+  font-size: 0.75rem;
+  color: var(--text-sub);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* 공통 텍스트/숫자/셀렉트/텍스트에어리어 인풋 */
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  box-sizing: border-box;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  background-color: var(--bg-surface);
+  border-color: var(--accent-yellow-strong);
+  box-shadow: 0 0 0 3px var(--accent-yellow-glow);
+}
+
+/* 4. 가격 입력칸 (원 단위 접미사 래퍼) */
+.price-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.price-input-wrapper .form-input {
+  padding-right: 44px;
+  font-weight: 600;
+}
+
+.price-unit-suffix {
+  position: absolute;
+  right: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-sub);
+  pointer-events: none;
+}
+
+/* 5. 자세한 설명 (textarea) */
+.form-textarea {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.form-char-count {
+  text-align: right;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: -2px;
+}
+
+.form-char-count.is-limit {
+  color: #C94A38;
+  font-weight: 700;
+}
+
+/* 6. 거래 동네 빠른 추천 칩 */
+.location-quick-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.btn-location-chip {
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  color: var(--text-sub);
+  background-color: var(--bg-subtle);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-location-chip:hover {
+  border-color: var(--accent-yellow-strong);
+  color: var(--text-main);
+  background-color: var(--accent-yellow-subtle);
+}
+
+/* 7. 판매 상태 라디오 탭 UI */
+.status-radio-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.status-radio-option {
+  position: relative;
+}
+
+.status-radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.status-radio-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 10px;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-main);
+  color: var(--text-sub);
+  font-size: 0.925rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.status-radio-label:hover {
+  border-color: var(--accent-yellow-strong);
+  background-color: var(--accent-yellow-light);
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.sale {
+  background-color: var(--status-sale-text);
+}
+
+.status-dot.reserved {
+  background-color: var(--status-reserved-text);
+}
+
+.status-dot.sold {
+  background-color: var(--status-sold-text);
+}
+
+/* 선택된 판매 상태별 고유 색상 강조 */
+.status-radio-option input[type="radio"][value="판매중"]:checked + .status-radio-label {
+  background-color: var(--status-sale-bg);
+  color: var(--status-sale-text);
+  border-color: var(--status-sale-text);
+  box-shadow: 0 2px 8px rgba(30, 126, 52, 0.14);
+  font-weight: 700;
+}
+
+.status-radio-option input[type="radio"][value="예약중"]:checked + .status-radio-label {
+  background-color: var(--status-reserved-bg);
+  color: var(--status-reserved-text);
+  border-color: var(--status-reserved-text);
+  box-shadow: 0 2px 8px rgba(180, 83, 9, 0.14);
+  font-weight: 700;
+}
+
+.status-radio-option input[type="radio"][value="거래 완료"]:checked + .status-radio-label {
+  background-color: var(--status-sold-bg);
+  color: var(--status-sold-text);
+  border-color: var(--status-sold-text);
+  box-shadow: 0 2px 8px rgba(75, 85, 99, 0.14);
+  font-weight: 700;
+}
+
+/* 폼 유효성 안내 메시지 */
+.write-form-error {
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  background-color: #FDF2F0;
+  border: 1px solid #F5C6CB;
+  color: #B93829;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: none;
+}
+
+.write-form-error.visible {
+  display: block;
+}
+
+/* 하단 작성 완료 버튼 (#submitWriteBtn) */
+.write-submit-area {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#submitWriteBtn,
+.btn-submit-write {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: var(--primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(141, 91, 76, 0.25);
+}
+
+#submitWriteBtn:hover,
+.btn-submit-write:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 6px 16px rgba(115, 70, 56, 0.32);
+}
+
+#submitWriteBtn:active,
+.btn-submit-write:active {
+  transform: translateY(1px);
+}
+
+.write-memory-notice {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-sub);
+  margin: 0;
+}
+
+/* 모바일 반응형 레이아웃 */
+@media (max-width: 640px) {
+  .write-view-section {
+    padding: 16px 12px 48px;
+  }
+
+  .write-header-title {
+    font-size: 1.15rem;
+  }
+
+  .write-header-badge {
+    display: none;
+  }
+
+  #writeForm,
+  .write-form-card {
+    padding: 20px 16px;
+    gap: 20px;
+  }
+
+  .form-row-2col {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .image-upload-wrapper {
+    flex-direction: column;
+  }
+
+  .image-upload-box,
+  .image-preview-card {
+    width: 100%;
+    height: 180px;
+  }
+
+  .status-radio-group {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}

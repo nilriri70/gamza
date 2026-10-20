@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>감자 마켓 (Gamza) - 포근한 우리 동네 중고 거래</title>
+  <!-- Pretendard 웹폰트 (오프라인 시 시스템 산세리프 폴백) -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <!-- 통합 스타일시트 (화면 1 + 화면 2 + 화면 3) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- =====================================================================
+       상단 고정 헤더 (로고, 검색창, [글쓰기], [로그인] 버튼)
+       ===================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="site-logo" role="button" tabindex="0" aria-label="감자 마켓 홈으로 이동">
+        <span class="logo-icon" aria-hidden="true">🥔</span>
+        <span>감자</span>
+        <span class="logo-badge">동네중고</span>
+      </div>
+
+      <div class="search-bar" role="search">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="동네 이름, 물품명, 카테고리를 검색해 보세요"
+          aria-label="상품 검색"
+          autocomplete="off"
+        />
+        <button
+          type="button"
+          id="searchClearBtn"
+          class="search-clear-btn hidden"
+          aria-label="검색어 지우기"
+        >✕</button>
+      </div>
+
+      <div class="header-actions">
+        <button type="button" id="openWriteBtn" class="btn btn-primary">
+          <span aria-hidden="true">✏️</span>
+          <span>글쓰기</span>
+        </button>
+        <!-- 로그인 전: [로그인] 버튼만 표시 -->
+        <button type="button" id="loginBtn" class="btn btn-outline">
+          <span>로그인</span>
+        </button>
+        <!-- 로그인 후: [로그인] 버튼 숨김, [닉네임]과 [로그아웃] 버튼만 표시 -->
+        <button type="button" id="userNicknameBtn" class="btn btn-secondary user-nickname-badge hidden" hidden aria-label="내 닉네임">
+          <span aria-hidden="true">🥔</span>
+          <span id="headerNicknameText">감자이웃</span>
+        </button>
+        <button type="button" id="logoutBtn" class="btn btn-outline hidden" hidden>
+          <span>로그아웃</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       메인 영역: [화면 1] 상품 목록 & [화면 3] 글쓰기 화면
+       ===================================================================== -->
+  <main id="app">
+    <!-- [화면 1] 상품 목록 섹션 -->
+    <div id="listView">
+      <section class="market-hero">
+        <div class="container market-hero-inner">
+          <div class="hero-copy">
+            <h1>포근한 우리 동네 중고 거래, 감자 마켓 🥔</h1>
+            <p>갓 구운 감자처럼 따뜻하고 믿을 수 있는 이웃들과 중고 물품을 나눠 보세요.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="filter-bar" aria-label="상품 필터">
+          <div class="filter-row">
+            <!-- 카테고리 버튼 7종 -->
+            <div id="categoryList" class="category-list" role="group" aria-label="카테고리 선택">
+              <button type="button" class="category-btn active" data-category="전체" aria-pressed="true">전체</button>
+              <button type="button" class="category-btn" data-category="디지털기기" aria-pressed="false">디지털기기</button>
+              <button type="button" class="category-btn" data-category="가구/인테리어" aria-pressed="false">가구/인테리어</button>
+              <button type="button" class="category-btn" data-category="의류" aria-pressed="false">의류</button>
+              <button type="button" class="category-btn" data-category="생활가전" aria-pressed="false">생활가전</button>
+              <button type="button" class="category-btn" data-category="도서/티켓" aria-pressed="false">도서/티켓</button>
+              <button type="button" class="category-btn" data-category="기타" aria-pressed="false">기타</button>
+            </div>
+
+            <!-- '거래 가능만 보기' 켜고 끄는 버튼 -->
+            <label class="toggle-wrap" for="availableOnlyToggle">
+              <input type="checkbox" id="availableOnlyToggle" class="toggle-input" />
+              <span class="toggle-switch" aria-hidden="true"></span>
+              <span class="toggle-label-text">거래 가능만 보기</span>
+            </label>
+          </div>
+
+          <div class="list-summary-bar">
+            <span id="productCountText">총 <strong>6개</strong>의 포근한 중고 물품이 있어요</span>
+            <span id="dbSyncStatusText">🟢 Supabase DB 실시간 연동 중 (새로고침해도 유지됩니다)</span>
+          </div>
+        </div>
+
+        <!-- 상품 카드 그리드 (가짜 상품 6개 기본 표시) -->
+        <div class="product-section">
+          <div id="productGrid" class="product-grid" aria-live="polite"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- [화면 3] 글쓰기 화면 섹션 -->
+    <section id="writeViewSection" class="write-view-section hidden" hidden aria-label="상품 등록 글쓰기">
+      <!-- screen3_write.js가 초기화 시 7개 필수 입력 폼(#writeForm)을 렌더링합니다 -->
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       [화면 2] 상품 상세 팝업 (모달)
+       - 위쪽 절반: 상품 이미지
+       - 아래쪽: 판매자 정보 + (판매 상태 -> 카테고리 -> 상품명 -> 판매 위치 -> 업로드 시간 -> 가격 -> 상품 설명)
+       - 맨 아래: [관심 추가], [채팅 시작하기] 버튼
+       ===================================================================== -->
+  <dialog id="detailDialog" class="detail-dialog" closedby="any" aria-labelledby="modalProductTitle">
+    <button type="button" id="closeModalBtn" class="modal-close-btn" aria-label="상세 창 닫기">✕</button>
+
+    <div class="modal-image-section">
+      <img id="modalProductImage" class="modal-product-image" src="" alt="상품 이미지" />
+    </div>
+
+    <div class="modal-body-section">
+      <!-- 판매자 정보 (닉네임, 프로필 이미지, 판매 지역) -->
+      <div class="seller-profile-box">
+        <div id="modalSellerAvatar" class="seller-avatar" aria-hidden="true">🥔</div>
+        <div class="seller-info-text">
+          <span id="modalSellerNickname" class="seller-nickname">감자이웃</span>
+          <span id="modalSellerRegion" class="seller-region">마포구 연남동</span>
+        </div>
+      </div>
+
+      <!-- 작성자 전용 관리 바 (내가 쓴 게시글을 클릭했을 때만 표시: 판매중/예약중/거래 완료 선택 및 수정/삭제) -->
+      <div id="modalOwnerControls" class="modal-owner-controls hidden" hidden aria-label="내 게시글 관리">
+        <div class="owner-status-group" role="group" aria-label="판매 상태 변경">
+          <span class="owner-control-label">판매 상태</span>
+          <div class="owner-status-btns">
+            <button type="button" class="owner-status-btn" data-status-value="판매중">판매중</button>
+            <button type="button" class="owner-status-btn" data-status-value="예약중">예약중</button>
+            <button type="button" class="owner-status-btn" data-status-value="거래 완료">거래 완료</button>
+          </div>
+        </div>
+        <div class="owner-action-btns">
+          <button type="button" id="modalEditPostBtn" class="btn btn-secondary btn-sm owner-edit-btn">
+            ✏️ 수정
+          </button>
+          <button type="button" id="modalDeletePostBtn" class="btn btn-outline btn-sm owner-delete-btn">
+            🗑️ 삭제
+          </button>
+        </div>
+      </div>
+
+      <!-- 상품 상세 정보 (요청된 순서 엄수: 판매 상태 -> 카테고리 -> 상품명 -> 판매 위치 -> 업로드 시간 -> 가격 -> 상품 설명) -->
+      <div class="product-core-info">
+        <span id="modalStatusBadge" class="status-badge status-sale">판매중</span>
+        <span id="modalCategory" class="modal-category">디지털기기</span>
+        <h2 id="modalProductTitle" class="modal-title">상품명</h2>
+        <div id="modalLocation" class="modal-location">서울 마포구 연남동</div>
+        <div id="modalTime" class="modal-time">12분 전</div>
+        <div id="modalPrice" class="modal-price">95,000원</div>
+        <p id="modalDescription" class="modal-description">상품 설명</p>
+      </div>
+    </div>
+
+    <!-- 맨 아래 액션 버튼 -->
+    <div class="modal-footer-actions">
+      <button type="button" id="modalWishBtn" class="modal-wish-btn" aria-pressed="false">
+        🤍 관심 추가
+      </button>
+      <button type="button" id="modalChatBtn" class="modal-chat-btn">
+        💬 채팅 시작하기
+      </button>
+    </div>
+
+    <div id="modalFeedbackToast" class="modal-feedback-toast" role="status" aria-live="polite"></div>
+  </dialog>
+
+  <!-- =====================================================================
+       [로그인 / 회원가입 모달] (#authDialog)
+       - 이메일 · 비밀번호 로그인 및 회원가입 (닉네임 필수 입력)
+       - Supabase Auth (auth.users + public.profiles) 연동
+       ===================================================================== -->
+  <dialog id="authDialog" class="auth-dialog" closedby="any" aria-labelledby="authDialogTitle">
+    <button type="button" id="closeAuthModalBtn" class="modal-close-btn" aria-label="로그인 창 닫기">✕</button>
+
+    <div class="auth-modal-header">
+      <div class="auth-logo-circle" aria-hidden="true">🥔</div>
+      <h2 id="authDialogTitle" class="auth-modal-title">감자 마켓 시작하기</h2>
+      <p id="authDialogSubtitle" class="auth-modal-subtitle">따뜻한 우리 동네 중고 거래를 위해 로그인해 주세요.</p>
+    </div>
+
+    <!-- 로그인 / 회원가입 탭 전환 -->
+    <div class="auth-tabs" role="tablist" aria-label="로그인 또는 회원가입 선택">
+      <button
+        type="button"
+        id="tabSignInBtn"
+        class="auth-tab-btn active"
+        role="tab"
+        aria-selected="true"
+        data-auth-tab="signin"
+      >로그인</button>
+      <button
+        type="button"
+        id="tabSignUpBtn"
+        class="auth-tab-btn"
+        role="tab"
+        aria-selected="false"
+        data-auth-tab="signup"
+      >회원가입</button>
+    </div>
+
+    <div id="authNoticeBanner" class="auth-notice-banner hidden" hidden role="status"></div>
+    <div id="authErrorBox" class="auth-error-box hidden" hidden role="alert"></div>
+
+    <!-- 1. 로그인 폼 (Sign In) -->
+    <form id="signInForm" class="auth-form" novalidate>
+      <div class="auth-field">
+        <label class="auth-label" for="signin-email">이메일 <span class="required-dot">*</span></label>
+        <input
+          type="email"
+          id="signin-email"
+          name="email"
+          class="auth-input"
+          placeholder="예) gamza@example.com"
+          autocomplete="username"
+          spellcheck="false"
+          enterkeyhint="next"
+          required
+        />
+      </div>
+
+      <div class="auth-field">
+        <label class="auth-label" for="current-password">비밀번호 <span class="required-dot">*</span></label>
+        <input
+          type="password"
+          id="current-password"
+          name="password"
+          class="auth-input"
+          placeholder="비밀번호를 입력해 주세요"
+          autocomplete="current-password"
+          enterkeyhint="done"
+          required
+        />
+      </div>
+
+      <button type="submit" id="signInSubmitBtn" class="btn btn-primary auth-submit-btn">
+        로그인
+      </button>
+    </form>
+
+    <!-- 2. 회원가입 폼 (Sign Up - 닉네임 필수 입력) -->
+    <form id="signUpForm" class="auth-form hidden" hidden novalidate>
+      <div class="auth-field">
+        <label class="auth-label" for="signup-nickname">
+          닉네임 <span class="required-dot">*</span>
+          <span class="auth-label-hint">글 작성 시 이웃에게 보이는 별명</span>
+        </label>
+        <input
+          type="text"
+          id="signup-nickname"
+          name="nickname"
+          class="auth-input"
+          placeholder="예) 포슬감자, 연남동감자칩 (최대 30자)"
+          maxlength="30"
+          autocomplete="nickname"
+          spellcheck="false"
+          autocorrect="off"
+          autocapitalize="off"
+          enterkeyhint="next"
+          required
+        />
+      </div>
+
+      <div class="auth-field">
+        <label class="auth-label" for="signup-email">이메일 <span class="required-dot">*</span></label>
+        <input
+          type="email"
+          id="signup-email"
+          name="email"
+          class="auth-input"
+          placeholder="예) gamza@example.com"
+          autocomplete="username"
+          spellcheck="false"
+          enterkeyhint="next"
+          required
+        />
+      </div>
+
+      <div class="auth-field">
+        <label class="auth-label" for="new-password">
+          비밀번호 <span class="required-dot">*</span>
+          <span class="auth-label-hint">6자 이상</span>
+        </label>
+        <input
+          type="password"
+          id="new-password"
+          name="new-password"
+          class="auth-input"
+          placeholder="비밀번호를 6자 이상 입력해 주세요"
+          minlength="6"
+          autocomplete="new-password"
+          enterkeyhint="done"
+          required
+        />
+      </div>
+
+      <button type="submit" id="signUpSubmitBtn" class="btn btn-primary auth-submit-btn">
+        회원가입 완료하고 시작하기
+      </button>
+    </form>
+  </dialog>
+
+  <!-- Supabase JS SDK v2 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- 통합 스크립트 (화면 1 + 화면 2 + 화면 3 + Supabase 연동) -->
+  <script src="app.js"></script>
+</body>
+</html>

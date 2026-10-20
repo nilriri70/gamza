@@ -1,0 +1,580 @@
+/* ==========================================================================
+   [화면 2: 상품 상세 팝업(모달)] - screen2_modal.css
+   중고 거래 웹 서비스 '감자(Gamza)' 포근한 감자/어스톤(Earth Tone) 테마
+   ========================================================================== */
+
+:root {
+  --bg-main: #FDFBF7;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F4EFE6;
+  --primary: #8D5B4C;
+  --primary-hover: #734638;
+  --primary-light: #F3E9E4;
+  --secondary-accent: #F5B82E;
+  --accent-yellow: #FBC02D;
+  --accent-yellow-strong: #F5B82E;
+  --accent-yellow-light: #FFFDF2;
+  --accent-yellow-subtle: #FFF3C4;
+  --accent-yellow-border: #F5C445;
+  --accent-yellow-glow: rgba(245, 184, 46, 0.28);
+  --text-main: #2C221E;
+  --text-sub: #6E5D54;
+  --text-muted: #9C8C82;
+  --border-color: #E6DEC8;
+
+  /* 판매 상태 배지 컬러 변수 */
+  --status-sale-bg: #E6F4EA;
+  --status-sale-text: #1E7E34;
+  --status-reserved-bg: #FFF3C4;
+  --status-reserved-text: #B45309;
+  --status-sold-bg: #E8E4DF;
+  --status-sold-text: #6E5D54;
+
+  --modal-radius: 20px;
+  --modal-shadow: 0 24px 48px rgba(44, 34, 30, 0.22), 0 4px 12px rgba(44, 34, 30, 0.08);
+}
+
+/* 모달 오픈 시 배경 스크롤 잠금 지원 */
+body:has(dialog.detail-dialog[open]) {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   1. 네이티브 <dialog> 컨테이너 & 백드롭 스타일링
+   ========================================================================== */
+dialog.detail-dialog,
+#detailDialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  padding: 0;
+  width: min(92vw, 540px);
+  height: min(88vh, 800px);
+  max-width: 540px;
+  max-height: 88vh;
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--modal-radius);
+  box-shadow: var(--modal-shadow);
+  overflow: hidden;
+  z-index: 1000;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
+}
+
+dialog.detail-dialog[open],
+#detailDialog[open] {
+  display: flex;
+  flex-direction: column;
+  animation: gamzaModalPopIn 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+dialog.detail-dialog::backdrop,
+#detailDialog::backdrop {
+  background-color: rgba(44, 34, 30, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: gamzaBackdropFadeIn 0.2s ease-out;
+}
+
+@keyframes gamzaModalPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gamzaBackdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 내부 래퍼가 있는 경우에도 플렉스 레이아웃 유지 */
+.detail-dialog .modal-container,
+.detail-dialog .modal-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ==========================================================================
+   2. 우측 상단 닫기 버튼 (#closeModalBtn, .modal-close-btn)
+   ========================================================================== */
+#closeModalBtn,
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 20;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background-color: rgba(44, 34, 30, 0.55);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+#closeModalBtn:hover,
+.modal-close-btn:hover {
+  background-color: rgba(44, 34, 30, 0.82);
+  transform: scale(1.05);
+}
+
+#closeModalBtn:active,
+.modal-close-btn:active {
+  transform: scale(0.96);
+}
+
+#closeModalBtn:focus-visible,
+.modal-close-btn:focus-visible {
+  outline: 2px solid var(--bg-surface);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   3. 상단 상품 이미지 영역 (.modal-image-section) - 모달 높이의 약 46%
+   ========================================================================== */
+.modal-image-section {
+  position: relative;
+  width: 100%;
+  height: 46%;
+  min-height: 240px;
+  max-height: 370px;
+  flex-shrink: 0;
+  background-color: var(--bg-subtle);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-image-section img,
+.modal-product-image,
+#modalProductImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+/* 이미지가 없거나 플레이스홀더 상태일 때 */
+.modal-image-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  color: var(--text-sub);
+  font-size: 0.95rem;
+  background: linear-gradient(135deg, #F4EFE6 0%, #EAE0D0 100%);
+}
+
+/* ==========================================================================
+   4. 하단 상세 본문 영역 (.modal-body-section)
+   ========================================================================== */
+.modal-body-section {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 20px 24px 28px;
+  background-color: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+}
+
+.modal-body-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-body-section::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 999px;
+}
+
+/* 4-1. 판매자 정보 박스 (.seller-profile-box) */
+.seller-profile-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  margin-bottom: 6px;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+}
+
+.seller-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--accent-yellow-subtle);
+  border: 1.5px solid var(--accent-yellow-border);
+  object-fit: cover;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  color: var(--primary);
+  overflow: hidden;
+}
+
+.seller-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.seller-info-text,
+.seller-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.seller-nickname {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.seller-region {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-sub);
+  line-height: 1.3;
+}
+
+/* 4-2. 상품 핵심 정보 (엄격한 시각적 순서 배치) */
+.product-core-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* (1) 판매 상태 배지 (.status-badge) */
+.detail-dialog .status-badge,
+#modalStatusBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  background-color: var(--status-sale-bg);
+  color: var(--status-sale-text);
+}
+
+.detail-dialog .status-badge.status-sale,
+#modalStatusBadge.status-sale {
+  background-color: var(--status-sale-bg);
+  color: var(--status-sale-text);
+}
+
+.detail-dialog .status-badge.status-reserved,
+#modalStatusBadge.status-reserved {
+  background-color: var(--status-reserved-bg);
+  color: var(--status-reserved-text);
+}
+
+.detail-dialog .status-badge.status-sold,
+#modalStatusBadge.status-sold {
+  background-color: var(--status-sold-bg);
+  color: var(--status-sold-text);
+}
+
+/* (2) 카테고리 (.modal-category) */
+.modal-category,
+#modalCategory {
+  --badge-bg: var(--accent-yellow-subtle);
+  display: inline-block;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-main);
+  background-color: var(--badge-bg);
+  border: 1px solid var(--accent-yellow-border);
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-top: 2px;
+}
+
+@supports (color: oklch(from red l c h)) {
+  .modal-category,
+  #modalCategory {
+    --threshold: 0.623;
+    --l: max(0, sign(var(--threshold) - l));
+    color: oklch(from var(--badge-bg) var(--l) 0 h);
+  }
+}
+
+@supports (color: contrast-color(red)) {
+  .modal-category,
+  #modalCategory {
+    color: contrast-color(var(--badge-bg));
+  }
+}
+
+/* (3) 상품명 (#modalProductTitle, .modal-title) */
+#modalProductTitle,
+.modal-title {
+  margin: 2px 0 0;
+  font-size: 1.32rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.38;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+
+/* (4) 판매 위치 (.modal-location) & (5) 업로드 시간 (.modal-time) */
+.modal-location,
+#modalLocation {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-sub);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1.4;
+}
+
+.modal-location::before {
+  content: "📍";
+  font-size: 0.85rem;
+}
+
+.modal-time,
+#modalTime {
+  font-size: 0.84rem;
+  font-weight: 400;
+  color: var(--text-sub);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1.4;
+}
+
+.modal-time::before {
+  content: "🕒";
+  font-size: 0.82rem;
+}
+
+/* (6) 가격 (.modal-price) */
+.modal-price,
+#modalPrice {
+  margin-top: 4px;
+  padding: 10px 0 12px;
+  width: 100%;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* (7) 상품 설명 (.modal-description) */
+.modal-description,
+#modalDescription {
+  margin-top: 6px;
+  font-size: 0.96rem;
+  line-height: 1.68;
+  color: var(--text-main);
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+/* ==========================================================================
+   5. 맨 아래 하단 고정 액션 바 (.modal-footer-actions)
+   ========================================================================== */
+.modal-footer-actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background-color: var(--bg-main);
+  border-top: 1px solid var(--border-color);
+  position: relative;
+}
+
+#modalWishBtn,
+.modal-wish-btn {
+  flex: 0 0 auto;
+  min-width: 124px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border-color);
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+#modalWishBtn:hover,
+.modal-wish-btn:hover {
+  border-color: var(--accent-yellow-strong);
+  background-color: var(--accent-yellow-subtle);
+  box-shadow: 0 2px 8px rgba(245, 184, 46, 0.22);
+}
+
+#modalWishBtn.is-wished,
+.modal-wish-btn.is-wished {
+  border-color: #D9534F;
+  background-color: #FFF5F5;
+  color: #C9302C;
+}
+
+#modalChatBtn,
+.modal-chat-btn {
+  flex: 1 1 auto;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--primary);
+  color: #FFFFFF;
+  font-size: 0.98rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  box-shadow: 0 4px 12px rgba(141, 91, 76, 0.22);
+}
+
+#modalChatBtn:hover,
+.modal-chat-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+#modalChatBtn:active,
+.modal-chat-btn:active,
+#modalWishBtn:active,
+.modal-wish-btn:active {
+  transform: translateY(1px);
+}
+
+#modalChatBtn:disabled,
+.modal-chat-btn:disabled {
+  background-color: var(--border-color);
+  color: var(--text-sub);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* 모달 내부 가벼운 피드백 토스트 */
+.modal-feedback-toast {
+  position: absolute;
+  left: 50%;
+  bottom: 76px;
+  transform: translateX(-50%) translateY(8px);
+  background-color: rgba(44, 34, 30, 0.92);
+  color: #FFFFFF;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 30;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.modal-feedback-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   6. 모바일 / 소형 화면 반응형 (바텀시트 & 꽉 찬 모달 스타일)
+   ========================================================================== */
+@media (max-width: 640px) {
+  dialog.detail-dialog,
+  #detailDialog {
+    width: 100vw;
+    max-width: 100vw;
+    height: 92dvh;
+    max-height: 92dvh;
+    margin: auto 0 0 0;
+    border-radius: 22px 22px 0 0;
+    border-bottom: none;
+  }
+
+  .modal-image-section {
+    height: 44%;
+    min-height: 210px;
+    max-height: 310px;
+  }
+
+  .modal-body-section {
+    padding: 18px 18px 24px;
+  }
+
+  #modalProductTitle,
+  .modal-title {
+    font-size: 1.2rem;
+  }
+
+  .modal-price,
+  #modalPrice {
+    font-size: 1.32rem;
+  }
+
+  .modal-footer-actions {
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+}

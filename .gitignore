@@ -1,0 +1,18 @@
+# 환경변수 및 민감한 키 파일 보호 (Public 저장소 노출 방지)
+.env
+.env.*
+!.env.example
+SUPABASE*.txt
+*secret*
+*key*.txt
+
+# OS 및 에디터 임시 파일
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+node_modules/
+dist/
+build/
+*.log
