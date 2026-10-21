@@ -220,13 +220,33 @@
         avatar: createAvatarSvgDataUri('멍냥감자', '#FFF3E0', '#A1623B'),
         region: '성동구 성수동 · 매너온도 40.5°C'
       }
+    },
+    {
+      id: 'gamza-item-8',
+      title: '신생아 원목 아기체육관 & 오가닉 모빌 세트 (소독 완료)',
+      category: '신생아 아기 용품',
+      location: '서울 마포구 합정동',
+      timeAgo: '방금 전',
+      price: 35000,
+      status: '판매중',
+      description:
+        '아기가 뒤집기 시작하면서 졸업하게 되어 깨끗하게 쓰던 원목 아기체육관과 오가닉 모빌 세트 내놓습니다.\n\n' +
+        '• 구성: 친환경 무독성 비치우드 프레임 + 오가닉 코튼 행잉 장난감 4종\n' +
+        '• 상태: 아기 전용 세제로 세탁 및 UV 살균 소독 완료해 바로 사용하실 수 있습니다.\n' +
+        '• 합정역 인근 직거래 또는 문고리 거래 가능합니다.',
+      image: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=800&q=80',
+      seller: {
+        nickname: '아기감자맘',
+        avatar: createAvatarSvgDataUri('아기감자맘', '#FCE4EC', '#C27D68'),
+        region: '마포구 합정동 · 매너온도 43.0°C'
+      }
     }
   ];
 
   /* ------------------------------------------------------------------------
      2. 화면 1 컨트롤러 (window.GamzaListView)
      ------------------------------------------------------------------------ */
-  var CATEGORIES = ['전체', '디지털기기', '가구/인테리어', '의류', '생활가전', '도서/티켓', '반려동물 용품', '기타'];
+  var CATEGORIES = ['전체', '디지털기기', '가구/인테리어', '의류', '생활가전', '도서/티켓', '반려동물 용품', '신생아 아기 용품', '기타'];
 
   var GamzaListView = {
     products: window.GAMZA_INITIAL_PRODUCTS.slice(),
@@ -1573,6 +1593,10 @@
     pet: {
       label: '반려동물 용품',
       svg: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80'
+    },
+    baby: {
+      label: '신생아 아기 용품',
+      svg: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=800&q=80'
     }
   };
 
@@ -1584,6 +1608,7 @@
     '의류': 'fashion',
     '도서/티켓': 'default',
     '반려동물 용품': 'pet',
+    '신생아 아기 용품': 'baby',
     '기타': 'default'
   };
 
@@ -1594,6 +1619,7 @@
     '생활가전',
     '도서/티켓',
     '반려동물 용품',
+    '신생아 아기 용품',
     '기타'
   ];
 
@@ -1693,6 +1719,7 @@
                     <button type="button" class="btn-sample-preset" data-preset="living">🛋️ 인테리어 소품</button>
                     <button type="button" class="btn-sample-preset" data-preset="fashion">👕 의류/잡화</button>
                     <button type="button" class="btn-sample-preset" data-preset="pet">🐾 반려동물 용품</button>
+                    <button type="button" class="btn-sample-preset" data-preset="baby">🍼 신생아 아기 용품</button>
                   </div>
                   <p class="sample-preset-notice">※ 사진을 직접 올리지 않아도 바로 등록을 테스트할 수 있어요.</p>
                 </div>
@@ -2425,6 +2452,7 @@
     '의류': 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80',
     '도서/티켓': 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
     '반려동물 용품': 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80',
+    '신생아 아기 용품': 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=800&q=80',
     '기타': 'https://images.unsplash.com/photo-1526401485004-46910ecc8e51?auto=format&fit=crop&w=800&q=80'
   };
 
