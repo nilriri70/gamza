@@ -92,39 +92,7 @@
         '• 구성품: 본품, 정품 박스, 꼬임 방지 C타입 케이블, 키캡 리무버 모두 포함\n' +
         '• 상태: 키캡 번들거림 전혀 없고 배터리 효율 최상입니다.\n\n' +
         '연남동 경의선숲길 공원 인근에서 직거래 희망합니다!',
-      image: createProductSvgDataUri({
-        bg1: '#F3ECE3',
-        bg2: '#DFCBB5',
-        accent: '#6D4C41',
-        label: '기계식 키보드',
-        subTitle: 'KEYCHRON K8 PRO',
-        artSvg:
-          '<rect x="130" y="160" width="380" height="165" rx="22" fill="#3E3532" stroke="#2C221E" stroke-width="4"/>' +
-          '<rect x="148" y="178" width="344" height="129" rx="12" fill="#2A2321"/>' +
-          '<g fill="#F4EFE6">' +
-          '<rect x="160" y="190" width="28" height="24" rx="5" fill="#FBC02D"/>' +
-          '<rect x="194" y="190" width="28" height="24" rx="5"/>' +
-          '<rect x="228" y="190" width="28" height="24" rx="5"/>' +
-          '<rect x="262" y="190" width="28" height="24" rx="5"/>' +
-          '<rect x="296" y="190" width="28" height="24" rx="5"/>' +
-          '<rect x="330" y="190" width="28" height="24" rx="5"/>' +
-          '<rect x="364" y="190" width="28" height="24" rx="5"/>' +
-          '<rect x="398" y="190" width="28" height="24" rx="5"/>' +
-          '<rect x="432" y="190" width="46" height="24" rx="5" fill="#8D5B4C"/>' +
-          '<rect x="160" y="222" width="40" height="24" rx="5" fill="#A1887F"/>' +
-          '<rect x="206" y="222" width="28" height="24" rx="5"/>' +
-          '<rect x="240" y="222" width="28" height="24" rx="5"/>' +
-          '<rect x="274" y="222" width="28" height="24" rx="5"/>' +
-          '<rect x="308" y="222" width="28" height="24" rx="5"/>' +
-          '<rect x="342" y="222" width="28" height="24" rx="5"/>' +
-          '<rect x="376" y="222" width="28" height="24" rx="5"/>' +
-          '<rect x="410" y="222" width="68" height="24" rx="5" fill="#FBC02D"/>' +
-          '<rect x="160" y="254" width="52" height="24" rx="5" fill="#8D5B4C"/>' +
-          '<rect x="218" y="254" width="188" height="24" rx="5" fill="#EADBC8"/>' +
-          '<rect x="412" y="254" width="66" height="24" rx="5" fill="#8D5B4C"/>' +
-          '</g>' +
-          '<path d="M320 160 C320 125, 370 125, 370 95" stroke="#8D5B4C" stroke-width="6" stroke-linecap="round" fill="none"/>'
-      }),
+      image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&q=80',
       seller: {
         nickname: '구운감자칩',
         avatar: createAvatarSvgDataUri('구운감자칩', '#F3E9E4', '#C6956E'),
@@ -145,23 +113,7 @@
         '• 주백색 LED 전구(E26) 2개 같이 드려요.\n' +
         '• 스크래치나 찍힘 없이 아주 깨끗한 상태입니다.\n\n' +
         '성수역 3번 출구 앞이나 서울숲 인근에서 직거래 가능합니다.',
-      image: createProductSvgDataUri({
-        bg1: '#FBF4E9',
-        bg2: '#E9D6BD',
-        accent: '#8D5B4C',
-        label: '원목 협탁 & 조명',
-        subTitle: 'COZY HOME INTERIOR',
-        artSvg:
-          '<ellipse cx="320" cy="180" rx="115" ry="85" fill="#FFE082" fill-opacity="0.45"/>' +
-          '<polygon points="260,115 380,115 410,205 230,205" fill="#FFFDF9" stroke="#8D5B4C" stroke-width="5" stroke-linejoin="round"/>' +
-          '<rect x="312" y="205" width="16" height="58" fill="#8D5B4C"/>' +
-          '<rect x="280" y="256" width="80" height="14" rx="7" fill="#6D4C41"/>' +
-          '<rect x="210" y="270" width="220" height="84" rx="12" fill="#B68059" stroke="#6D4C41" stroke-width="4"/>' +
-          '<rect x="228" y="286" width="184" height="52" rx="6" fill="#CCA07B" stroke="#6D4C41" stroke-width="3"/>' +
-          '<circle cx="320" cy="312" r="7" fill="#5D4037"/>' +
-          '<line x1="238" y1="354" x2="224" y2="405" stroke="#6D4C41" stroke-width="10" stroke-linecap="round"/>' +
-          '<line x1="402" y1="354" x2="416" y2="405" stroke="#6D4C41" stroke-width="10" stroke-linecap="round"/>'
-      }),
+      image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80',
       seller: {
         nickname: '포슬포슬햇감자',
         avatar: createAvatarSvgDataUri('포슬포슬햇감자', '#FFF3E0', '#D7A97C'),
@@ -182,22 +134,7 @@
         '• 구성: 토스터 본품, 정품 5cc 스팀 급수컵, 가이드북\n' +
         '• 내부 베이킹 트레이까지 구연산 세척 완료해두었습니다.\n\n' +
         '현재 오늘 저녁 7시 직거래 예약중입니다. 불발 시 순차 연락드릴게요!',
-      image: createProductSvgDataUri({
-        bg1: '#F7EFE6',
-        bg2: '#E5D3C2',
-        accent: '#A1623B',
-        label: '스팀 토스터',
-        subTitle: 'CREAM WHITE EDITION',
-        artSvg:
-          '<rect x="165" y="135" width="310" height="215" rx="26" fill="#FCF9F2" stroke="#8D5B4C" stroke-width="5"/>' +
-          '<rect x="195" y="172" width="185" height="125" rx="14" fill="#3E322C" stroke="#D49B35" stroke-width="4"/>' +
-          '<path d="M235 255 Q287 205 340 255" stroke="#FFB74D" stroke-width="6" stroke-linecap="round" fill="none"/>' +
-          '<rect x="248" y="218" width="80" height="52" rx="10" fill="#E6A15C"/>' +
-          '<circle cx="425" cy="205" r="22" fill="#D49B35" stroke="#8D5B4C" stroke-width="3"/>' +
-          '<circle cx="425" cy="268" r="14" fill="#8D5B4C"/>' +
-          '<rect x="200" y="350" width="22" height="16" rx="4" fill="#6D4C41"/>' +
-          '<rect x="418" y="350" width="22" height="16" rx="4" fill="#6D4C41"/>'
-      }),
+      image: 'https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=800&q=80',
       seller: {
         nickname: '버터통감자',
         avatar: createAvatarSvgDataUri('버터통감자', '#EFEBE9', '#BC8F6F'),
@@ -217,23 +154,7 @@
         '• 사이즈: 남녀공용 L (여성분은 루즈핏, 남성분은 100~105 세미오버핏)\n' +
         '• 실착 횟수: 2회 착용 후 드라이클리닝 완료하여 새상품 컨디션입니다.\n' +
         '• 우드 버튼 디테일이 감성적이고 포켓 수납도 넉넉합니다.',
-      image: createProductSvgDataUri({
-        bg1: '#F4EDE2',
-        bg2: '#DFCDAE',
-        accent: '#734638',
-        label: '코듀로이 셔켓',
-        subTitle: 'OATMEAL CORDUROY',
-        artSvg:
-          '<path d="M245 120 L285 105 L355 105 L395 120 L460 185 L425 225 L395 195 L395 355 L245 355 L245 195 L215 225 L180 185 Z" fill="#EFE6D8" stroke="#734638" stroke-width="5" stroke-linejoin="round"/>' +
-          '<polygon points="285,105 320,150 355,105" fill="#D7C4AA" stroke="#734638" stroke-width="4" stroke-linejoin="round"/>' +
-          '<line x1="320" y1="150" x2="320" y2="355" stroke="#734638" stroke-width="4"/>' +
-          '<circle cx="320" cy="185" r="5" fill="#8D5B4C"/>' +
-          '<circle cx="320" cy="225" r="5" fill="#8D5B4C"/>' +
-          '<circle cx="320" cy="265" r="5" fill="#8D5B4C"/>' +
-          '<circle cx="320" cy="305" r="5" fill="#8D5B4C"/>' +
-          '<rect x="262" y="195" width="38" height="42" rx="5" fill="#E3D3BE" stroke="#734638" stroke-width="3"/>' +
-          '<rect x="340" y="195" width="38" height="42" rx="5" fill="#E3D3BE" stroke="#734638" stroke-width="3"/>'
-      }),
+      image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80',
       seller: {
         nickname: '감자밭산책러',
         avatar: createAvatarSvgDataUri('감자밭산책러', '#E8F5E9', '#BA8E68'),
@@ -253,28 +174,7 @@
         '1. 모던 자바스크립트 Deep Dive (정가 45,000원)\n' +
         '2. Clean Code 클린 코드 (정가 33,000원)\n\n' +
         '밑줄이나 필기, 이름 기입 전혀 없고 책 모서리 구김도 없습니다. 역삼역 직거래 또는 반값택배 가능합니다!',
-      image: createProductSvgDataUri({
-        bg1: '#F5EFE6',
-        bg2: '#DECBB4',
-        accent: '#8D5B4C',
-        label: 'IT 개발 도서 세트',
-        subTitle: 'JS DEEP DIVE & CLEAN CODE',
-        artSvg:
-          '<g transform="translate(175, 115)">' +
-          '<rect x="0" y="20" width="145" height="210" rx="10" fill="#8D5B4C" stroke="#2C221E" stroke-width="4"/>' +
-          '<rect x="14" y="20" width="131" height="210" rx="8" fill="#FAF6F0" stroke="#2C221E" stroke-width="4"/>' +
-          '<rect x="32" y="52" width="95" height="28" rx="6" fill="#D49B35"/>' +
-          '<text x="80" y="71" font-family="Pretendard, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF" text-anchor="middle">JS DEEP</text>' +
-          '<line x1="36" y1="108" x2="118" y2="108" stroke="#9E8E85" stroke-width="5" stroke-linecap="round"/>' +
-          '<line x1="36" y1="128" x2="104" y2="128" stroke="#9E8E85" stroke-width="5" stroke-linecap="round"/>' +
-          '<rect x="140" y="0" width="145" height="210" rx="10" fill="#5D4037" stroke="#2C221E" stroke-width="4"/>' +
-          '<rect x="154" y="0" width="131" height="210" rx="8" fill="#FFFDF9" stroke="#2C221E" stroke-width="4"/>' +
-          '<rect x="172" y="34" width="95" height="28" rx="6" fill="#8D5B4C"/>' +
-          '<text x="220" y="53" font-family="Pretendard, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">CLEAN CODE</text>' +
-          '<line x1="176" y1="90" x2="258" y2="90" stroke="#9E8E85" stroke-width="5" stroke-linecap="round"/>' +
-          '<line x1="176" y1="110" x2="242" y2="110" stroke="#9E8E85" stroke-width="5" stroke-linecap="round"/>' +
-          '</g>'
-      }),
+      image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
       seller: {
         nickname: '코딩하는감자',
         avatar: createAvatarSvgDataUri('코딩하는감자', '#EDE7F6', '#C99A72'),
@@ -294,20 +194,7 @@
         '• 바구니 내부에 패브릭 안감이 있어 과일이나 샌드위치 넣기 좋아요.\n' +
         '• 방수 매트는 성인 2~3명이 넉넉하게 앉을 수 있는 크기(150x200cm)입니다.\n' +
         '• 좋은 분께 기분 좋게 거래 완료되었습니다. 감사합니다!',
-      image: createProductSvgDataUri({
-        bg1: '#EFEAE1',
-        bg2: '#D8CFC2',
-        accent: '#607D8B',
-        label: '피크닉 바구니 세트',
-        subTitle: 'PICNIC RATTAN SET',
-        artSvg:
-          '<path d="M245 200 C245 115, 395 115, 395 200" stroke="#795548" stroke-width="12" stroke-linecap="round" fill="none"/>' +
-          '<polygon points="185,205 455,205 420,340 220,340" fill="#C89666" stroke="#5D4037" stroke-width="5" stroke-linejoin="round"/>' +
-          '<rect x="175" y="192" width="290" height="24" rx="10" fill="#FFE0B2" stroke="#5D4037" stroke-width="4"/>' +
-          '<line x1="230" y1="245" x2="410" y2="245" stroke="#8D5B4C" stroke-width="4" stroke-dasharray="12 10"/>' +
-          '<line x1="238" y1="285" x2="402" y2="285" stroke="#8D5B4C" stroke-width="4" stroke-dasharray="12 10"/>' +
-          '<line x1="245" y1="320" x2="395" y2="320" stroke="#8D5B4C" stroke-width="4" stroke-dasharray="12 10"/>'
-      }),
+      image: 'https://images.unsplash.com/photo-1526401485004-46910ecc8e51?auto=format&fit=crop&w=800&q=80',
       seller: {
         nickname: '알감자피크닉',
         avatar: createAvatarSvgDataUri('알감자피크닉', '#ECEFF1', '#B68964'),
@@ -724,18 +611,7 @@
 
       var category = newProductData.category || '기타';
       var title = newProductData.title || '이름 없는 감자 상품';
-      var defaultImage = createProductSvgDataUri({
-        bg1: '#F6EFE6',
-        bg2: '#E3D0BA',
-        accent: '#8D5B4C',
-        label: category,
-        subTitle: 'NEW GAMZA ITEM',
-        artSvg:
-          '<ellipse cx="320" cy="235" rx="95" ry="75" fill="#D7A97C" stroke="#6D4C41" stroke-width="5"/>' +
-          '<circle cx="290" cy="220" r="7" fill="#2C221E"/>' +
-          '<circle cx="350" cy="220" r="7" fill="#2C221E"/>' +
-          '<path d="M303 245 Q320 260 337 245" stroke="#2C221E" stroke-width="5" stroke-linecap="round" fill="none"/>'
-      });
+      var defaultImage = 'https://images.unsplash.com/photo-1526401485004-46910ecc8e51?auto=format&fit=crop&w=800&q=80';
 
       var sellerId =
         newProductData.sellerId ||
@@ -918,7 +794,7 @@
           item.image +
           '" alt="' +
           this.escapeHtml(item.title) +
-          '" loading="lazy" />' +
+          '" loading="lazy" onerror="this.onerror=null;this.src=\'https://images.unsplash.com/photo-1526401485004-46910ecc8e51?auto=format&fit=crop&w=800&q=80\';" />' +
           '<span class="card-category-tag">' +
           this.escapeHtml(item.category) +
           '</span>' +
@@ -1656,69 +1532,23 @@
     </svg>
   `);
 
-  // 카테고리/샘플별 감자 마켓 일러스트 SVG 프리셋
+  // 카테고리/샘플별 실사 상품 사진 프리셋
   const SAMPLE_PRESETS = {
     default: {
-      label: '기본 포근 감자박스',
-      svg: createSvgDataUri(`
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
-          <rect width="400" height="300" fill="#F4EFE6"/>
-          <circle cx="200" cy="145" r="95" fill="#FDFBF7" stroke="#E6DEC8" stroke-width="3"/>
-          <!-- 박스 -->
-          <rect x="130" y="145" width="140" height="75" rx="12" fill="#D4A373" stroke="#8D5B4C" stroke-width="4"/>
-          <path d="M122 148 L200 122 L278 148" fill="#E6CCB2" stroke="#8D5B4C" stroke-width="4" stroke-linejoin="round"/>
-          <!-- 귀여운 감자 캐릭터 -->
-          <ellipse cx="200" cy="122" rx="42" ry="34" fill="#E9C46A" stroke="#8D5B4C" stroke-width="4"/>
-          <circle cx="186" cy="116" r="4.5" fill="#2C221E"/>
-          <circle cx="214" cy="116" r="4.5" fill="#2C221E"/>
-          <ellipse cx="178" cy="124" rx="6" ry="3.5" fill="#E76F51" opacity="0.55"/>
-          <ellipse cx="222" cy="124" rx="6" ry="3.5" fill="#E76F51" opacity="0.55"/>
-          <path d="M192 126 Q200 133 208 126" fill="none" stroke="#2C221E" stroke-width="3.5" stroke-linecap="round"/>
-          <text x="200" y="190" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#2C221E">감자마켓 추천템</text>
-          <text x="200" y="268" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="600" fill="#6E5D54">따뜻한 동네 중고 거래</text>
-        </svg>
-      `)
+      label: '기본 감성 소품',
+      svg: 'https://images.unsplash.com/photo-1526401485004-46910ecc8e51?auto=format&fit=crop&w=800&q=80'
     },
     digital: {
       label: '디지털/가전',
-      svg: createSvgDataUri(`
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
-          <rect width="400" height="300" fill="#EFECE6"/>
-          <rect x="115" y="65" width="170" height="115" rx="14" fill="#FFFFFF" stroke="#8D5B4C" stroke-width="5"/>
-          <rect x="128" y="78" width="144" height="86" rx="6" fill="#F4EFE6"/>
-          <circle cx="200" cy="121" r="22" fill="#D4A373" stroke="#8D5B4C" stroke-width="3"/>
-          <circle cx="193" cy="117" r="3" fill="#2C221E"/>
-          <circle cx="207" cy="117" r="3" fill="#2C221E"/>
-          <path d="M195 125 Q200 130 205 125" fill="none" stroke="#2C221E" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M95 192 L305 192 L285 212 L115 212 Z" fill="#D4A373" stroke="#8D5B4C" stroke-width="4" stroke-linejoin="round"/>
-          <text x="200" y="255" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#6E5D54">감자마켓 디지털기기</text>
-        </svg>
-      `)
+      svg: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&q=80'
     },
     living: {
       label: '가구/인테리어',
-      svg: createSvgDataUri(`
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
-          <rect width="400" height="300" fill="#F6F1E9"/>
-          <!-- 스탠드 조명 & 화분 -->
-          <path d="M160 75 L240 75 L260 135 L140 135 Z" fill="#F4A261" stroke="#8D5B4C" stroke-width="4" stroke-linejoin="round"/>
-          <line x1="200" y1="135" x2="200" y2="205" stroke="#8D5B4C" stroke-width="6"/>
-          <rect x="165" y="205" width="70" height="14" rx="7" fill="#8D5B4C"/>
-          <text x="200" y="258" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#6E5D54">포근한 인테리어 소품</text>
-        </svg>
-      `)
+      svg: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80'
     },
     fashion: {
       label: '의류/잡화',
-      svg: createSvgDataUri(`
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
-          <rect width="400" height="300" fill="#F7EFEA"/>
-          <path d="M155 75 L180 65 L220 65 L245 75 L275 110 L250 132 L235 112 L235 205 L165 205 L165 112 L150 132 L125 110 Z" fill="#E09F7D" stroke="#8D5B4C" stroke-width="4" stroke-linejoin="round"/>
-          <circle cx="200" cy="135" r="18" fill="#FDFBF7" opacity="0.85"/>
-          <text x="200" y="140" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#8D5B4C">GAMZA</text>
-          <text x="200" y="255" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#6E5D54">깨끗하게 보관한 의류</text>
-        </svg>
-      `)
+      svg: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80'
     }
   };
 
@@ -2561,51 +2391,43 @@
     return createdDate.toLocaleDateString('ko-KR');
   }
 
+  var CATEGORY_DEFAULT_PHOTOS = {
+    '디지털기기': 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&q=80',
+    '가구/인테리어': 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80',
+    '생활가전': 'https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=800&q=80',
+    '의류': 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80',
+    '도서/티켓': 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
+    '기타': 'https://images.unsplash.com/photo-1526401485004-46910ecc8e51?auto=format&fit=crop&w=800&q=80'
+  };
+
   /**
-   * DB의 image_url(프리셋 키, HTTP URL, Data URI)을 화면 표시용 이미지 주소로 변환
+   * DB의 image_url(프리셋 키, HTTP URL, Data URI)을 화면 표시용 실사 이미지 주소로 변환
    */
   function resolveProductImage(row) {
     var rawUrl = (row && row.image_url) ? String(row.image_url).trim() : '';
 
-    // 1) 초기 시드 상품 6종과 제목이 일치하면 고해상도 커스텀 일러스트 매칭
+    // 1) 초기 시드 상품 6종과 제목이 일치하면 실사 상품 사진 매칭
     if (Array.isArray(window.GAMZA_INITIAL_PRODUCTS) && row && row.title) {
       for (var i = 0; i < window.GAMZA_INITIAL_PRODUCTS.length; i++) {
         var seed = window.GAMZA_INITIAL_PRODUCTS[i];
-        if (seed.title === row.title && (!rawUrl || rawUrl.indexOf('preset:') === 0)) {
+        if (seed.title === row.title && (!rawUrl || rawUrl.indexOf('preset:') === 0 || rawUrl.indexOf('data:image/svg') === 0)) {
           return seed.image;
         }
       }
     }
 
-    // 2) Storage 공개 URL 또는 Data URI인 경우 그대로 반환
+    // 2) Storage 공개 URL 또는 업로드된 이미지 Data URI인 경우 그대로 반환
     if (
       rawUrl.indexOf('http://') === 0 ||
       rawUrl.indexOf('https://') === 0 ||
-      rawUrl.indexOf('data:image/') === 0
+      (rawUrl.indexOf('data:image/') === 0 && rawUrl.indexOf('data:image/svg') !== 0)
     ) {
       return rawUrl;
     }
 
-    // 3) 카테고리 기반 기본 일러스트 생성
-    if (
-      window.GamzaListView &&
-      typeof window.GamzaListView.createProductSvgDataUri === 'function'
-    ) {
-      return window.GamzaListView.createProductSvgDataUri({
-        bg1: '#F5EBE1',
-        bg2: '#E8D5C4',
-        accent: '#8D5B4C',
-        label: (row && row.category) || '감자 마켓 추천',
-        subTitle: 'GAMZA MARKET',
-        artSvg:
-          '<ellipse cx="320" cy="235" rx="95" ry="75" fill="#D7A97C" stroke="#6D4C41" stroke-width="5"/>' +
-          '<circle cx="290" cy="220" r="7" fill="#2C221E"/>' +
-          '<circle cx="350" cy="220" r="7" fill="#2C221E"/>' +
-          '<path d="M303 245 Q320 260 337 245" stroke="#2C221E" stroke-width="5" stroke-linecap="round" fill="none"/>'
-      });
-    }
-
-    return rawUrl;
+    // 3) 카테고리별 기본 실사 사진 반환
+    var cat = (row && row.category) || '기타';
+    return CATEGORY_DEFAULT_PHOTOS[cat] || CATEGORY_DEFAULT_PHOTOS['기타'];
   }
 
   /**
