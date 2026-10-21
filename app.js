@@ -200,13 +200,33 @@
         avatar: createAvatarSvgDataUri('알감자피크닉', '#ECEFF1', '#B68964'),
         region: '용산구 이태원동 · 매너온도 37.5°C'
       }
+    },
+    {
+      id: 'gamza-item-7',
+      title: '강아지 원목 식기 테이블 & 도자기 물그릇 2구 세트 (미사용)',
+      category: '반려동물 용품',
+      location: '서울 성동구 성수동',
+      timeAgo: '방금 전',
+      price: 22000,
+      status: '판매중',
+      description:
+        '강아지 목 관절 보호를 위해 각도 조절이 가능한 친환경 원목 식기 테이블과 도자기 그릇 2구 세트입니다.\n\n' +
+        '• 구성: 자작나무 원목 받침대 + 전자레인지/식기세척기 가능한 도자기 볼 2개\n' +
+        '• 상태: 사이즈 미스로 개봉만 해본 미사용 새상품입니다.\n' +
+        '• 성수역 인근 직거래 또는 꼼꼼하게 뽁뽁이 포장해서 택배 거래 가능합니다.',
+      image: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80',
+      seller: {
+        nickname: '멍냥감자',
+        avatar: createAvatarSvgDataUri('멍냥감자', '#FFF3E0', '#A1623B'),
+        region: '성동구 성수동 · 매너온도 40.5°C'
+      }
     }
   ];
 
   /* ------------------------------------------------------------------------
      2. 화면 1 컨트롤러 (window.GamzaListView)
      ------------------------------------------------------------------------ */
-  var CATEGORIES = ['전체', '디지털기기', '가구/인테리어', '의류', '생활가전', '도서/티켓', '기타'];
+  var CATEGORIES = ['전체', '디지털기기', '가구/인테리어', '의류', '생활가전', '도서/티켓', '반려동물 용품', '기타'];
 
   var GamzaListView = {
     products: window.GAMZA_INITIAL_PRODUCTS.slice(),
@@ -1549,6 +1569,10 @@
     fashion: {
       label: '의류/잡화',
       svg: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80'
+    },
+    pet: {
+      label: '반려동물 용품',
+      svg: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80'
     }
   };
 
@@ -1559,6 +1583,7 @@
     '가구/인테리어': 'living',
     '의류': 'fashion',
     '도서/티켓': 'default',
+    '반려동물 용품': 'pet',
     '기타': 'default'
   };
 
@@ -1568,6 +1593,7 @@
     '의류',
     '생활가전',
     '도서/티켓',
+    '반려동물 용품',
     '기타'
   ];
 
@@ -1666,6 +1692,7 @@
                     <button type="button" class="btn-sample-preset" data-preset="digital">💻 디지털/가전</button>
                     <button type="button" class="btn-sample-preset" data-preset="living">🛋️ 인테리어 소품</button>
                     <button type="button" class="btn-sample-preset" data-preset="fashion">👕 의류/잡화</button>
+                    <button type="button" class="btn-sample-preset" data-preset="pet">🐾 반려동물 용품</button>
                   </div>
                   <p class="sample-preset-notice">※ 사진을 직접 올리지 않아도 바로 등록을 테스트할 수 있어요.</p>
                 </div>
@@ -2397,6 +2424,7 @@
     '생활가전': 'https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=800&q=80',
     '의류': 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80',
     '도서/티켓': 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
+    '반려동물 용품': 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80',
     '기타': 'https://images.unsplash.com/photo-1526401485004-46910ecc8e51?auto=format&fit=crop&w=800&q=80'
   };
 
